@@ -8,22 +8,23 @@
 // - Adding additional fields
 
 class App {
-  constructor() {
-    const menuElement = document.querySelector('#menu');
-    this.menu = new MenuScreen(menuElement);
+    constructor() {
+        const menuElement = document.querySelector('#menu');
+        const choicesElemnt = document.querySelector('#choices');
+        const mainElement = document.querySelector('#main');
+        const resultElement = document.querySelector('#results');
 
-    const mainElement = document.querySelector('#main');
-    this.flashcards = new FlashcardScreen(mainElement);
+        this.results = new ResultsScreen(resultElement);
+        this.flashcards = new FlashcardScreen(mainElement,this.results.show);
+        this.menu = new MenuScreen(menuElement, choicesElemnt,this.flashcards.show);
 
-    const resultElement = document.querySelector('#results');
-    this.results = new ResultsScreen(resultElement);
 
-    // Uncomment this pair of lines to see the "flashcard" screen:
-    // this.menu.hide();
-    // this.flashcards.show();
+        // Uncomment this pair of lines to see the "flashcard" screen:
+        // this.menu.hide();
+        // this.flashcards.show();
 
-    // Uncomment this pair of lines to see the "results" screen:
-    // this.menu.hide();
-    // this.results.show();
-  }
+        // Uncomment this pair of lines to see the "results" screen:
+        // this.menu.hide();
+        // this.results.show();
+    }
 }

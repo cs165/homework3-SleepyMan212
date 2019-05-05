@@ -1,3 +1,17 @@
 /*
 TODO(you): Write any additional styles you need here.
 */
+.choices {
+    height: 2rem;
+    box-shadow: 0px .8px 0px #b4b4b4;
+    padding: 5px 0;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+@keyframes cardUp {
+    0% {top:270px;},
+    100% {top:0;}
+}
+.flashcard-box .word{
+    animation: cardUp .5s ease;
+}
