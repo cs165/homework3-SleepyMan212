@@ -89,6 +89,7 @@ class Flashcard {
     }
     _moveCard(event) {
         event.preventDefault();
+        event.target.setPointerCapture(event.pointerId);
         this.flashcardElement.style.transition = '';
         this.flashcardElement.style.transform = `translateX(${(event.clientX-this.originX)}px) translateY(${(event.clientY-this.originY)}px) rotate(${(event.clientX-this.originX)*0.2}deg)`;
         if(Math.abs(event.clientX-this.originX) > 150){
