@@ -33,7 +33,7 @@ class ResultsScreen {
         this.menuShow = menuShow;
         this.cardShow = cardShow;
         this.containerElement.classList.remove('inactive');
-        this.percentElement.textContent = numberCorrect/(numberCorrect+numberWrong)*100;
+        this.percentElement.textContent = (numberCorrect/(numberCorrect+numberWrong)*100).toFixed(2);
         this.correctElement.textContent = numberCorrect;
         this.incorrectElement.textContent = numberWrong;
         if(numberCorrect === (numberWrong+numberCorrect)){

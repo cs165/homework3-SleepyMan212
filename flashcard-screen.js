@@ -35,7 +35,10 @@ class FlashcardScreen {
     }
 
     show(words,menuShow) {
-        if(this.correct === 5){
+        if(this.words === null){
+            this.words = words;
+        }
+        if(this.correct === Object.keys(this.words).length){
             this.failQues = this.words;
             this.correct = 0;
             this.incorrect = 0;
@@ -65,7 +68,7 @@ class FlashcardScreen {
         // console.log(this.incorrect);
         const idx = this.correct + this.incorrect - this.originCorrect;
         const card = new Flashcard(this.flashcardContainer, this.words_key[idx], this.ques[this.words_key[idx]],this.judge,this.nextCard);
-        
+
         this.correctElement.textContent = this.correct;
         this.incorrectElement.textContent = this.incorrect;
 
