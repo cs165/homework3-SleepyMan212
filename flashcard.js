@@ -29,6 +29,7 @@ class Flashcard {
 
         this.width = this.flashcardElement.offsetWidth;
         this.height = this.flashcardElement.offsetHeight;
+        this.drag = false;
     }
 
     // Creates the DOM object representing a flashcard with the given
@@ -65,6 +66,7 @@ class Flashcard {
     }
 
     _flipCard(event) {
+        this.drag = false;
         console.log(event.clientX - this.originX);
         console.log((event.clientX - this.originX)<-150);
         if((event.clientX-this.originX) > 150){
@@ -84,10 +86,13 @@ class Flashcard {
         document.body.style.backgroundColor = "#d0e6df";
     }
     _recCardX(event){
+        this.drag = true;
         this.originX = event.clientX;
         this.originY = event.clientY;
     }
     _moveCard(event) {
+        if(!this.drag) return;
+
         event.preventDefault();
         event.target.setPointerCapture(event.pointerId);
         this.flashcardElement.style.transition = '';
